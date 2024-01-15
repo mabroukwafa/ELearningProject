@@ -50,12 +50,14 @@
     L'application sera lancée et accessible à l'adresse http://localhost:8080.
 
 #Tester les services avec Postman
+
     Ouvrez Postman.
     Configurez les requêtes HTTP (GET, POST, PUT, DELETE) pour interagir avec l'application.  exemple d'URL:
     GET  http://localhost:8080/formations/admin : demander une liste de tous les administrateur
     POST   http://localhost:8080/formations/admin  et ajoutez les données nécessaires dans le corps de la requête sous format JSON. 
 
 #Structure du projet
+
     src\main\java\wafa\finetude\formation\entities : Classes d'entités pour la représentation des tables de base de données.
     src\main\java\wafa\finetude\formation\repos : Interfaces JPA Repository pour l'accès aux données.
     src\main\java\wafa\finetude\formation\restcontrollers : Contrôleurs pour gérer les requêtes HTTP.
