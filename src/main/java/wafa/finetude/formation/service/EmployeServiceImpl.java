@@ -1,11 +1,15 @@
 package wafa.finetude.formation.service;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import wafa.finetude.formation.entities.Employe;
 import wafa.finetude.formation.repos.EmployeRepository;
 
+@Service
 public class EmployeServiceImpl implements EmployeService {
-  
+
     @Autowired
     EmployeRepository employeRepository;
 
@@ -40,7 +44,7 @@ public class EmployeServiceImpl implements EmployeService {
     }
 
     @Override
-    public List<Employe> findByNomEmploye(String nom) {
+    public List<Employe> findByUsername(String nom) {
         return employeRepository.findByUsername(nom);
     }
 

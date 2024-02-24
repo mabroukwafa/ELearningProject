@@ -3,11 +3,14 @@ package wafa.finetude.formation.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import wafa.finetude.formation.entities.Categorie;
 import wafa.finetude.formation.entities.Formateur;
 import wafa.finetude.formation.entities.Formation;
 import wafa.finetude.formation.repos.FormationRepository;
 
+@Service
 public class FormationServiceImpl implements FormationService {
 
     @Autowired
@@ -56,6 +59,16 @@ public class FormationServiceImpl implements FormationService {
     @Override
     public List<Formation> findByFormateurNom(String nom) {
         return formationRepository.findByFormateurUsername(nom);
+    }
+
+    @Override
+    public List<Formation> findByFormateurId(Long id) {
+        return formationRepository.findByFormateurId(id);
+    }
+
+    @Override
+    public List<Formation> findByCategorieNomCat(String nomCat){
+        return formationRepository.findByCategorieNomCat(nomCat);
     }
 
 }

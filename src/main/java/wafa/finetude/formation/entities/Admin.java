@@ -2,18 +2,24 @@ package wafa.finetude.formation.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
 /**
- * La classe Admin éxtend de la classe User, représentant un administrateur dans le système.
- * Elle est annotée comme une entité JPA(@Entity), ce qui signifie qu'elle sera mappée à une table de base de données.
+ * La classe Admin éxtend de la classe User, représentant un administrateur dans
+ * le système.
+ * Elle est annotée comme une entité JPA(@Entity), ce qui signifie qu'elle sera
+ * mappée à une table de base de données.
  */
 
 @Entity
 public class Admin extends User {
 
     @OneToMany(mappedBy = "admin")
+    @JsonIgnoreProperties("admin")
+
     private List<AttributionFormation> attributionsEffectuees;
 
     public Admin() {

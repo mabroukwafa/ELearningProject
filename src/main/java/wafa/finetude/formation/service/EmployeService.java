@@ -18,6 +18,6 @@ public interface EmployeService {
 
     List<Employe> getAllEmployes();
 
-    List<Employe> findByNomEmploye(String nom);
+    List<Employe> findByUsername(String nom);
 
 }

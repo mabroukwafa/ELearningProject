@@ -1,25 +1,39 @@
 package wafa.finetude.formation.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.Email;
 
 /**
- * Classe de base représentant un utilisateur dans notre système de gestion de formation.
+ * Classe de base représentant un utilisateur dans notre système de gestion de
+ * formation.
  * Cette entité est mappée à une table dans une base de données à l'aide de JPA.
  */
+
 @Entity
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "username"),
+        @UniqueConstraint(columnNames = "email")
+})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
+    @Column(unique = true)
     private String username;
+
     private String password;
+
+    @Column(unique = true)
+    @Email(message = "Email should be valid", regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")
     private String email;
     private boolean enabled;// Indicateur d'activation du compte utilisateur.
-
 
     public User() {
         super();

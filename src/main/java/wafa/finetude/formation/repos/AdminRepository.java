@@ -22,7 +22,7 @@ import wafa.finetude.formation.entities.Admin;
  * de formation via des requêtes HTTP simples.
  */
 
-@RepositoryRestResource(collectionResourceRel = "admin", path = "admin")
+//@RepositoryRestResource(collectionResourceRel = "admin", path = "admin")
 
 /**
  * Cette méthode permet de récupérer une liste d'administrateurs en fonction de
@@ -30,6 +30,7 @@ import wafa.finetude.formation.entities.Admin;
  * L'URL pour accéder à cette méthode via une requête HTTP serait :
  * http://localhost:8080/formations/admin/search/findByUsername?username=nom
  */
+
 public interface AdminRepository extends JpaRepository<Admin, Long> {
      List<Admin> findByUsername(String nom);
 }

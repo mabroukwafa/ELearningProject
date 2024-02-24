@@ -18,7 +18,7 @@ public interface FormateurService {
 
     List<Formateur> getAllFormateurs();
 
-    List<Formateur> findByNomFormateur(String nom);
+    List<Formateur> findByUsername(String nom);
 
     // List<Formateur> findByFormations(Formation formation);
     // List<Formateur> findByFormationsTitre(String titre);

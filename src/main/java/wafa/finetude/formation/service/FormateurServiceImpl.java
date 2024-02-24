@@ -3,10 +3,12 @@ package wafa.finetude.formation.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import wafa.finetude.formation.entities.Formateur;
 import wafa.finetude.formation.repos.FormateurRepository;
 
+@Service
 public class FormateurServiceImpl implements FormateurService {
 
     @Autowired
@@ -43,7 +45,7 @@ public class FormateurServiceImpl implements FormateurService {
     }
 
     @Override
-    public List<Formateur> findByNomFormateur(String nom) {
+    public List<Formateur> findByUsername(String nom) {
         return formateurRepository.findByUsername(nom);
     }
 

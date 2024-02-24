@@ -1,5 +1,7 @@
 package wafa.finetude.formation.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,9 +9,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 
 import jakarta.persistence.ManyToOne;
+
 /**
  * Entité représentant une question dans le système.
- * Cette classe est destinée à stocker des questions liées à des formations spécifiques .
+ * Cette classe est destinée à stocker des questions liées à des formations
+ * spécifiques .
  */
 @Entity
 public class Question {
@@ -24,12 +28,15 @@ public class Question {
     // Indique le formateur destinataire de la question.
     @ManyToOne
     @JoinColumn(name = "formateur_id")
+
     private Formateur formateur;// destinataire
 
-     // Relation ManyToOne avec l'entité Employe.
+    // Relation ManyToOne avec l'entité Employe.
     // Indique l'employé qui a posé la question.
     @ManyToOne
     @JoinColumn(name = "employe_id")
+    @JsonIgnoreProperties("questions")
+
     private Employe employe;
 
     // Relation ManyToOne avec l'entité Formation.
@@ -46,6 +53,11 @@ public class Question {
         this.formateur = formateur;
         this.employe = employe;
         this.formation = formation;
+    }
+
+    public Question() {
+        super();
+
     }
 
     public Long getIdQues() {

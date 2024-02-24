@@ -2,6 +2,8 @@ package wafa.finetude.formation.entities;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,8 +12,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 /**
- * La classe AttributionFormation représente l'attribution d'une formation à un employé.
- * Elle est annotée comme une entité JPA pour être mappée à une table dans la base de données.
+ * La classe AttributionFormation représente l'attribution d'une formation à un
+ * employé.
+ * Elle est annotée comme une entité JPA pour être mappée à une table dans la
+ * base de données.
  */
 
 @Entity
@@ -19,11 +23,12 @@ public class AttributionFormation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idFor;
     private long idAttri;
 
     @ManyToOne
     @JoinColumn(name = "employe_id")
+    @JsonIgnoreProperties("attributions")
+
     private Employe employe;
 
     @ManyToOne
@@ -32,14 +37,15 @@ public class AttributionFormation {
 
     @ManyToOne
     @JoinColumn(name = "admin_id")
-    
+    @JsonIgnoreProperties("attributionsEffectuees")
+
     private Admin admin;
 
     private LocalDate dateAttribution;
 
     public AttributionFormation(Long idFor, long idAttri, Employe employe, Formation formation, Admin admin,
             LocalDate dateAttribution) {
-        this.idFor = idFor;
+
         this.idAttri = idAttri;
         this.employe = employe;
         this.formation = formation;
@@ -48,14 +54,6 @@ public class AttributionFormation {
     }
 
     public AttributionFormation() {
-    }
-
-    public Long getIdFor() {
-        return idFor;
-    }
-
-    public void setIdFor(Long idFor) {
-        this.idFor = idFor;
     }
 
     public long getIdAttri() {

@@ -2,33 +2,42 @@ package wafa.finetude.formation.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 /**
- * La classe Employe éxtend de la classe User et représente un employé dans le système.
- * Elle est annotée comme une entité JPA pour être mappée à une table de base de données.
+ * La classe Employe éxtend de la classe User et représente un employé dans le
+ * système.
+ * Elle est annotée comme une entité JPA pour être mappée à une table de base de
+ * données.
  */
 
 @Entity
 public class Employe extends User {
 
     // Liste des formations auxquelles l'employé est associé.
-    // Utilisation de l'annotation @ManyToMany pour représenter une relation plusieurs-à-plusieurs
+    // Utilisation de l'annotation @ManyToMany pour représenter une relation
+    // plusieurs-à-plusieurs
     // entre Employe et Formation.
     @ManyToMany(mappedBy = "employes")
+    @JsonIgnoreProperties("employe")
     List<Formation> formations;
 
     // Liste des questions posées par l'employé.
-    // Utilisation de l'annotation @OneToMany pour indiquer une relation un-à-plusieurs 
+    // Utilisation de l'annotation @OneToMany pour indiquer une relation
+    // un-à-plusieurs
     // entre Employe et Question.
     @OneToMany(mappedBy = "employe")
+    @JsonIgnoreProperties("employe")
     List<Question> questions;
 
-     // Liste des attributions de formations à cet employé.
+    // Liste des attributions de formations à cet employé.
     // La relation est gérée par l'entité AttributionFormation.
     @OneToMany(mappedBy = "employe")
+    @JsonIgnoreProperties("employe")
     private List<AttributionFormation> attributions;
 
     public Employe(List<Formation> formations, List<Question> questions,

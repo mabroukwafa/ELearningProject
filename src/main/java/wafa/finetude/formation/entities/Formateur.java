@@ -2,8 +2,11 @@ package wafa.finetude.formation.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 
 /**
@@ -16,12 +19,14 @@ public class Formateur extends User {
 
     // Liste des formations associées à ce formateur.
     // La relation est unidirectionnelle avec suppression orpheline et en cascade.
-    @OneToMany(mappedBy = "formateur", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "formateur", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("formateur")
     List<Formation> formations;
 
     // Liste des questions associées à ce formateur.
     // La relation est unidirectionnelle avec suppression orpheline et en cascade.
     @OneToMany(mappedBy = "idQues", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("formateur")
     List<Question> questions;
 
     public Formateur(List<Formation> formations, List<Question> questions) {

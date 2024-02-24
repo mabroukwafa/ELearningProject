@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import wafa.finetude.formation.entities.Formateur;
 
@@ -24,17 +25,21 @@ import wafa.finetude.formation.entities.Formateur;
  * de formation via des requêtes HTTP simples.
  */
 
-@RepositoryRestResource(collectionResourceRel = "formateur", path = "formateur")
+//@RepositoryRestResource(collectionResourceRel = "formateur", path = "formateur")
 
 public interface FormateurRepository extends JpaRepository<Formateur, Long> {
-    List<Formateur> findByUsername(String username);
 
+
+
+    List<Formateur> findByUsername(String username);
 
     /**
      * Trouve un formateur associé à une formation spécifique.
-     * Cette méthode utilise une requête JPQL personnalisée pour récupérer le formateur.
-     * La requête sélectionne le formateur de l'entité Formation où l'identifiant de la formation correspond à l'id spécifié.
-     * */
+     * Cette méthode utilise une requête JPQL personnalisée pour récupérer le
+     * formateur.
+     * La requête sélectionne le formateur de l'entité Formation où l'identifiant de
+     * la formation correspond à l'id spécifié.
+     */
     @Query("SELECT f.formateur FROM Formation f WHERE f.id = :idFor")
     Formateur findFormateurByFormationId(@Param("idFor") Long idFor);
 

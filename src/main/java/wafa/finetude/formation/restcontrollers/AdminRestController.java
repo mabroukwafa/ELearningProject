@@ -46,7 +46,7 @@ public class AdminRestController {
         adminService.deleteAdmintById(id);
     }
 
-    @RequestMapping(value = "/adminnom/{nom}", method = RequestMethod.GET)
+    @RequestMapping(value = "/findByNom/{nom}", method = RequestMethod.GET)
     public List<Admin> getAdminByNom(@PathVariable("nom") String nom) {
         return adminService.findByUsername(nom);
     }
