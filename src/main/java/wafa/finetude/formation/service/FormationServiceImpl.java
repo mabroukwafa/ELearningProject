@@ -67,8 +67,13 @@ public class FormationServiceImpl implements FormationService {
     }
 
     @Override
-    public List<Formation> findByCategorieNomCat(String nomCat){
+    public List<Formation> findByCategorieNomCat(String nomCat) {
         return formationRepository.findByCategorieNomCat(nomCat);
+    }
+
+    @Override
+    public List<Formation> findByCategorieIdCat(long id) {
+        return formationRepository.findByCategorieIdCat(id);
     }
 
 }

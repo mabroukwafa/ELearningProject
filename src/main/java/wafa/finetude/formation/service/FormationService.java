@@ -30,6 +30,8 @@ public interface FormationService {
 
 	List<Formation> findByCategorieNomCat(String nomcat);
 
+	List<Formation> findByCategorieIdCat(long id);
+
 	// List<Produit> findByNomPrix (String nom, Double prix);
 	// List<Produit> findByCategorie (Categorie categorie);
 	// List<Produit> findByCategorieIdCat(Long id);

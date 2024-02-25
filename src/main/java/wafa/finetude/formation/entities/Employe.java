@@ -2,6 +2,7 @@ package wafa.finetude.formation.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -23,7 +24,7 @@ public class Employe extends User {
     // plusieurs-à-plusieurs
     // entre Employe et Formation.
     @ManyToMany(mappedBy = "employes")
-    @JsonIgnoreProperties("employe")
+    @JsonIgnore
     List<Formation> formations;
 
     // Liste des questions posées par l'employé.
@@ -31,13 +32,13 @@ public class Employe extends User {
     // un-à-plusieurs
     // entre Employe et Question.
     @OneToMany(mappedBy = "employe")
-    @JsonIgnoreProperties("employe")
+    @JsonIgnore
     List<Question> questions;
 
     // Liste des attributions de formations à cet employé.
     // La relation est gérée par l'entité AttributionFormation.
     @OneToMany(mappedBy = "employe")
-    @JsonIgnoreProperties("employe")
+    @JsonIgnore
     private List<AttributionFormation> attributions;
 
     public Employe(List<Formation> formations, List<Question> questions,

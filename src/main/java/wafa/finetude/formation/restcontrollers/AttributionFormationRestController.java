@@ -15,7 +15,7 @@ import wafa.finetude.formation.service.AttributionFormationService;
 
 @RestController
 @RequestMapping("/attribution")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class AttributionFormationRestController {
     @Autowired
     AttributionFormationService attributionFormationService;

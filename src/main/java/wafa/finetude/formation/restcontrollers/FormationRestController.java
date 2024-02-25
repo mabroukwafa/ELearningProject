@@ -62,8 +62,8 @@ public class FormationRestController {
         return formationService.findByFormateurId(id);
     }
 
-    @RequestMapping(value = "/findByCateg/{nom}", method = RequestMethod.GET)
-    public List<Formation> getFormationByCateg(@PathVariable("nom") String nom) {
-        return formationService.findByCategorieNomCat(nom);
+    @RequestMapping(value = "/findByCateg/{id}", method = RequestMethod.GET)
+    public List<Formation> getFormationByCateg(@PathVariable("id") Long id) {
+        return formationService.findByCategorieIdCat(id);
     }
 }

@@ -2,9 +2,8 @@ package wafa.finetude.formation.entities;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,6 +38,7 @@ public class Formation {
     // Définit une table de jointure pour relier les employés aux formations.
     @ManyToMany
     @JoinTable(name = "employe_formation", joinColumns = @JoinColumn(name = "formation_id"), inverseJoinColumns = @JoinColumn(name = "employe_id"))
+    @JsonIgnore
     private List<Employe> employes;
 
     // Association ManyToOne avec l'entité Formateur.
@@ -52,7 +52,7 @@ public class Formation {
     // Association OneToMany avec l'entité AttributionFormation.
     // Liste des attributions de la formation.
     @OneToMany(mappedBy = "formation")
-    @JsonIgnoreProperties("formations")
+    @JsonIgnore
     private List<AttributionFormation> attributions;
 
     @ManyToOne

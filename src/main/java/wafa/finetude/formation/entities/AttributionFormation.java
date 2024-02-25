@@ -2,6 +2,8 @@ package wafa.finetude.formation.entities;
 
 import java.time.LocalDate;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -9,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 /**
@@ -25,33 +29,23 @@ public class AttributionFormation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idAttri;
 
-    @ManyToOne
-    @JoinColumn(name = "employe_id")
+    @ManyToMany
+    // @JoinTable(name = "employe_attribution", joinColumns = @JoinColumn(name =
+    // "formation_id"), inverseJoinColumns = @JoinColumn(name = "employe_id"))
     @JsonIgnoreProperties("attributions")
-
-    private Employe employe;
+    private List<Employe> employe;
 
     @ManyToOne
     @JoinColumn(name = "formation_id")
+    @JsonIgnoreProperties("attributions")
     private Formation formation;
 
     @ManyToOne
     @JoinColumn(name = "admin_id")
     @JsonIgnoreProperties("attributionsEffectuees")
-
     private Admin admin;
 
     private LocalDate dateAttribution;
-
-    public AttributionFormation(Long idFor, long idAttri, Employe employe, Formation formation, Admin admin,
-            LocalDate dateAttribution) {
-
-        this.idAttri = idAttri;
-        this.employe = employe;
-        this.formation = formation;
-        this.admin = admin;
-        this.dateAttribution = dateAttribution;
-    }
 
     public AttributionFormation() {
     }
@@ -64,12 +58,12 @@ public class AttributionFormation {
         this.idAttri = idAttri;
     }
 
-    public Employe getEmploye() {
+    public List<Employe> getEmployes() {
         return employe;
     }
 
-    public void setEmploye(Employe employe) {
-        this.employe = employe;
+    public void setEmployes(List<Employe> employes) {
+        this.employe = employes;
     }
 
     public Formation getFormation() {
