@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row clearfix">
+
+
+          <h4 class="m-t-10" style="font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif">{{admin.username}}</h4>
+        </div>
+
+
+
+          <hr>
+          <strong>Nom</strong>
+          <p>{{admin.firstName}}</p>
+          <strong>Prenom</strong>
+          <p>{{admin.lastName}}</p>
+          <strong>Numero Telphone</strong>
+          <p>{{admin.tel}}</p>
+          <hr>
+  <form [formGroup]="form">
+    <star-rating-control formControlName="myRatingControl"></star-rating-control>
+    <pre>{{ form.value | json }}</pre>
+  </form>
+        </div>
+
+
+
+

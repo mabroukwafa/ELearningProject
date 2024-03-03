@@ -1,0 +1,11 @@
+.en-tete {
+    padding: 2px; /* L'espace intérieur de votre en-tête */
+    /* ... Autres styles de l'en-tête ... */
+  }
+  
+  .icone-notification {
+    color: white; /* La couleur de l'icône */
+    font-size: 24px; /* La taille de l'icône */
+    /* ... Autres styles pour l'icône ... */
+  }
+  

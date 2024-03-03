@@ -1,0 +1,79 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+
+      <!--div class="nav-link">
+
+            <img src="../../../assets/images/Mylearning.png"   height="50" width="200">
+
+
+      </div-->
+      
+    <li class="nav-item"  style="margin-top: 30px;"  *ngIf="role === 'Admin' || 'Formateur' " >
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic" >
+        <img src="../../../assets/images/certificat.png"  height="40" width="40">
+
+        <span class="menu-title"  routerLink="/home/formation" >Gestion Formation</span>
+
+      </a>
+
+    </li>
+
+    <li class="nav-item"   *ngIf="role === 'Employe' ">
+      <a class="nav-link" data-toggle="collapse"  aria-expanded="false"   href="#ui-basic">
+        <img src="../../../assets/images/croissance.png"  height="40" width="40">
+        <span class="menu-title" routerLink="/home/employeProg"> Mes progressions</span>
+      </a>
+    </li>
+    
+
+    <li class="nav-item"   *ngIf="role === 'Admin' ">
+      <a class="nav-link" data-toggle="collapse"  aria-expanded="false"   href="#ui-basic">
+        <img src="../../../assets/images/croissance.png"  height="40" width="40">
+        <span class="menu-title" routerLink="/home/statstique"> Suivre la progression</span>
+      </a>
+    </li>
+
+    <li class="nav-item"  *ngIf="role === 'Admin'" >
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic2"ng >
+        <img src="../../../assets/images/employees.png"  height="40" width="40">
+       <span class="menu-title"> Gestion Utilisateurs </span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic2" >
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+
+            <a class="nav-link"   routerLink="/home/utilisateur"> Liste de Utilisateur  </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home/demandes">   Validation en Attente </a>
+
+          </li>
+        </ul>
+      </div>
+
+      
+
+
+
+    <!--li class="nav-item"   >
+      <a class="nav-link" data-toggle="collapse"  aria-expanded="false" >
+        <img src="../../../assets/images/participation.png"  height="30" width="30">
+        <span class="menu-title"  routerLink="participer"> Participer Fourm  </span>
+
+      </a>
+    </li>
+
+    <li class="nav-item"   >
+      <a class="nav-link" data-toggle="collapse"  aria-expanded="false" >
+        <img src="../../../assets/images/communications.png"  height="40" width="40">
+        <span class="menu-title"  routerLink="question"> Déposer Question </span>
+
+      </a>
+    </li-->
+
+  </ul>
+
+
+</nav>
+

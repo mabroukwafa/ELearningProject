@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagramme de progression avec images</title>
+<style>
+  .diagram-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+
+  .step {
+    flex-basis: 20%;
+    position: relative;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .step:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -25px; /* ajuster si nécessaire */
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .step-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Définition de l'image de fond pour chaque étape */
+  .step:nth-child(1) .step-icon {
+    background-color: #3498db;
+    background-image: url('../../../assets/images/demande.jpg'); /* Remplacez avec le chemin de votre image */
+  }
+  .step:nth-child(1):after {
+    border-left: 20px solid #3498db;
+  }
+  .step:nth-child(2) .step-icon {
+    background-color: #3498db;
+    background-image: url('../../../assets/images/upcoming.jpg'); /* Remplacez avec le chemin de votre image */
+  }
+  .step:nth-child(2):after {
+    border-left: 20px solid #3498db;
+  }
+  .step:nth-child(3) .step-icon {
+    background-color: #3498db;
+    background-image: url('../../../assets/images/encour.png'); /* Remplacez avec le chemin de votre image */
+  }
+  .step:nth-child(3):after {
+    border-left: 20px solid #3498db;
+  }
+  .step:nth-child(4) .step-icon {
+    background-color: #3498db;
+    background-image: url('../../../assets/images/done.jpg'); /* Remplacez avec le chemin de votre image */
+  }
+  
+
+ 
+  .step:last-child:after {
+    content: none;
+  }
+
+  .step-title {
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="diagram-container">
+  <div class="step">
+    <div class="step-icon" ></div> 
+    <div class="step-title">Mes demandes </div>
+  </div>
+  <div class="step">
+    <div class="step-icon"></div>
+    <div class="step-title">A venir</div>
+  </div>
+  <div class="step">
+    <div class="step-icon"></div> 
+    <div class="step-title">En cours</div>
+  </div>
+  <div class="step">
+    <div class="step-icon"></div> 
+    <div class="step-title">Done</div>
+  </div>
+</div>
+
+</body>
+</html>

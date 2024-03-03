@@ -1,0 +1,334 @@
+
+
+
+
+<div id="pcoded" class="pcoded" *ngIf="!ispassager">
+
+
+
+            <!-- Main-body start -->
+            <div class="main-body">
+
+
+                <!-- Page-body start -->
+                <div class="page-body">
+                  <!--profile cover start-->
+                  <div class="row">
+                    <div class="col-lg-12">
+
+                        <br> <br>
+                        <div class="profile-bg-img" >
+                         &nbsp;  &nbsp;  &nbsp;  &nbsp;   <img src="http://localhost:9001/upload/files/{{user?.photo}}" height="140" width="180" >
+
+
+
+                              <div class="media-body row">
+
+
+                                &nbsp;  &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;  &nbsp;  &nbsp;        &nbsp;  &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;  &nbsp;  &nbsp;           &nbsp;  &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;  &nbsp;  &nbsp;          <h2>{{user.username}}</h2>
+
+
+                                </div>
+
+
+
+
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--profile cover end-->
+                  <div class="row">
+                    <div class="col-lg-12">
+
+                      <!-- tab content start -->
+                      <div class="tab-content">
+                        <!-- tab panel personal start -->
+                        <div class="tab-pane active" id="personal" role="tabpanel">
+                          <!-- personal card start -->
+                          <div class="card">
+                            <div class="card-header">
+                              <h5 class="card-header-text">
+                                À propos </h5>
+
+                            </div>
+                            <div class="card-block">
+                              <div class="view-info">
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <div class="general-info">
+                                      <div class="row">
+                                        <div class="col-lg-12 col-xl-6">
+                                          <div class="table-responsive">
+                                            <table class="table m-0">
+                                              <tbody>
+                                              <tr>
+                                                <th scope="row">Nom</th>
+                                                <td>{{user.firstName}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Nom</th>
+                                                <td>{{user.lastName}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Date de Naissance</th>
+                                                <td>{{user.birthdate}}</td>
+                                              </tr>
+                                              <tr >
+                                                <th scope="row">Permis</th>
+                                                <td>{{user.permis}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Adress</th>
+                                                <td>{{user.adress}}</td>
+                                              </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                        <!-- end of table col-lg-6 -->
+                                        <div class="col-lg-12 col-xl-6">
+                                          <div class="table-responsive">
+                                            <table class="table">
+                                              <tbody>
+                                              <tr>
+                                                <th scope="row">Gener</th>
+                                                <td>{{user.genre}}</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Email</th>
+                                                <td><a >{{user.email}}</a></td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Numero Telphone</th>
+                                                <td>{{user.tel}}</td>
+                                              </tr>
+                                              <tr >
+                                                <th scope="row">Carte identitée</th>
+                                                <td>{{user.cin}}</td>
+                                              </tr>
+
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                        </div>
+                                        <!-- end of table col-lg-6 -->
+                                      </div>
+                                      <!-- end of row -->
+                                    </div>
+                                    <!-- end of general info -->
+                                  </div>
+                                  <!-- end of col-lg-12 -->
+                                </div>
+                                <!-- end of row -->
+                              </div>
+
+
+
+
+                                        <!-- end of table col-lg-6 -->
+
+
+                                        <!-- end of table col-lg-6 -->
+
+
+
+
+                            </div>
+                            <!-- end of card-block -->
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="card">
+                                <div class="card-header">
+                                  <h5 class="card-header-text">Description About Me</h5>
+
+                                </div>
+                                <div class="card-block user-desc">
+                                  <div class="view-desc">
+                                    <p></p>  </div>
+                                  <div class="edit-desc">
+
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- personal card end-->
+                        </div>
+
+                      </div>
+                      <!-- tab content end -->
+                    </div>
+                  </div>
+
+
+            </div>
+          </div>
+        </div>
+<div  class="pcoded" *ngIf="ispassager">
+
+
+
+  <!-- Main-body start -->
+  <div class="main-body">
+
+
+    <!-- Page-body start -->
+    <div class="page-body">
+      <!--profile cover start-->
+      <div class="row">
+        <div class="col-lg-12">
+
+          <br> <br>
+          <div class="profile-bg-img">
+
+            <div class="media-body row">
+
+
+              &nbsp;  &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;  &nbsp;  &nbsp;        &nbsp;  &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;  &nbsp;  &nbsp;           &nbsp;  &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;  &nbsp;  &nbsp;          <h2>{{user.username}}</h2>
+
+
+            </div>
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <!--profile cover end-->
+      <div class="row">
+        <div class="col-lg-12">
+
+          <!-- tab content start -->
+          <div class="tab-content">
+            <!-- tab panel personal start -->
+            <div class="tab-pane active" id="personal" role="tabpanel">
+              <!-- personal card start -->
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-header-text">
+                    À propos </h5>
+
+                </div>
+                <div class="card-block">
+                  <div class="view-info">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="general-info">
+                          <div class="row">
+                            <div class="col-lg-12 col-xl-6">
+                              <div class="table-responsive">
+                                <table class="table m-0">
+                                  <tbody>
+                                  <tr>
+                                    <th scope="row">Nom</th>
+                                    <td>{{user.firstName}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Prenom</th>
+                                    <td>{{user.lastName}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Date de Naissance</th>
+                                    <td>{{user.birthdate}}</td>
+                                  </tr>
+
+                                  <tr>
+                                    <th scope="row">Adress</th>
+                                    <td>{{user.adress}}</td>
+                                  </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <!-- end of table col-lg-6 -->
+                            <div class="col-lg-12 col-xl-6">
+                              <div class="table-responsive">
+                                <table class="table">
+                                  <tbody>
+                                  <tr>
+                                    <th scope="row">Gener</th>
+                                    <td>{{user.genre}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Email</th>
+                                    <td><a >{{user.email}}</a></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">Numero Telphone</th>
+                                    <td>{{user.tel}}</td>
+                                  </tr>
+
+
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <!-- end of table col-lg-6 -->
+                          </div>
+                          <!-- end of row -->
+                        </div>
+                        <!-- end of general info -->
+                      </div>
+                      <!-- end of col-lg-12 -->
+                    </div>
+                    <!-- end of row -->
+                  </div>
+
+
+
+
+                  <!-- end of table col-lg-6 -->
+
+
+                  <!-- end of table col-lg-6 -->
+
+
+
+
+                </div>
+                <!-- end of card-block -->
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="card-header-text">Description About Me</h5>
+
+                    </div>
+                    <div class="card-block user-desc">
+                      <div class="view-desc">
+                        <p></p>  </div>
+                      <div class="edit-desc">
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- personal card end-->
+            </div>
+
+          </div>
+          <!-- tab content end -->
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

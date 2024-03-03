@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meilleures Catégories</title>
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    padding: 20px;
+  }
+  .grid-item {
+    text-align: center;
+  }
+  .grid-item img {
+    width: 100%;
+    max-width: 150px; /* Adjust as needed */
+  }
+  .category-title {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <p class="card-description">
+    Meilleures Catégories
+  </p>
+
+<div class="grid-container">
+  <div class="grid-item"  >
+    <img src="../../../assets/images/designIcon.png" alt="Design">
+    <div class="category-title">Design</div>
+  </div>
+  <div class="grid-item">
+    <img src="../../../assets/images/devIcon.png" alt="Développement" routerLink="/home/devFormations">
+    <div class="category-title">Développement</div>
+  </div>
+  <div class="grid-item">
+    <img src="../../../assets/images/marketingIcon.jpg" alt="Marketing">
+    <div class="category-title">Marketing</div>
+  </div>
+  <div class="grid-item">
+    <img src="../../../assets/images/devPerso.png" alt="Marketing">
+    <div class="category-title">Dévelopement Personnel</div>
+  </div>
+  <div class="grid-item">
+    <img src="../../../assets/images/business.png" alt="Marketing">
+    <div class="category-title">Business</div>
+  </div>
+  
+</div>
+
+</body>
+</html>

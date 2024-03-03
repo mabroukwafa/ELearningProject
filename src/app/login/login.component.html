@@ -1,0 +1,54 @@
+
+<body class="background">
+<div class="container-scroller" style="padding-top: 6%;">
+
+    <div class=" align-items-center auth  theme-one">
+      <div class="row w-100">
+        <div class="col-lg-4 mx-auto">
+          <div class="auto-form-wrapper"><h2 class="fc-center"> Connexion</h2>
+            <div class="alert alert-danger" *ngIf="erreur==1">
+              <strong>login ou mot de passe erronés..</strong>
+            </div>
+
+            <form  [formGroup]="loginForm" >
+        
+               <div class="form-group">
+                <label class="label">Nom d'utilisateur </label>
+               <div class="input-group">
+                  <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+
+
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                      <div *ngIf="f.username.errors.required">Nom d'utilisateur est obligatoire</div>
+
+                  </div>
+
+                </div>
+                </div>
+              <div class="form-group">
+                <label class="label">Mot de passe</label>
+
+                <div class="input-group">
+                  <input type="password"  placeholder="*********" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+
+
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Mot de passe obligatoire</div>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="text-block text-center my-3" style="padding-top: 5%;">
+                <button type="button" class="btn btn-primary" (click)="onlogin()" >se connecter</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</body>

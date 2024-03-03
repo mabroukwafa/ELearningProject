@@ -1,0 +1,4 @@
+.my-scrollable-list {
+    max-height: 200px; /* Hauteur fixe de la liste */
+    overflow-y: auto;  /* Active le défilement vertical si le contenu dépasse la hauteur */
+  }

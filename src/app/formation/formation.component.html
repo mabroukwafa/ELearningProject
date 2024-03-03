@@ -1,0 +1,341 @@
+<div class="content-wrapper">
+  <div class="row">
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <input type="text"  [(ngModel)]="term"  name ="term"/><i class="fas fa-search"></i>
+          <p class="card-description">
+            List des Formation
+          </p>
+          <button class="btn btn-success " data-toggle="modal" data-target="#addmodal">Ajouter Formation
+            <i class="mdi mdi-plus"></i>
+          </button>
+
+          <div class="table-responsive">
+
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>
+                  Id
+                 </th>
+                <th>
+                 Titre
+                </th>
+                <th>
+                  Formateur
+                </th>
+                <th>
+                  Detail
+                </th>
+                <th>
+                  Nombre de 
+                </th>
+                <th>
+                 Affecter
+                </th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor=" let formation of formations">
+                <td >{{formation.idFor}}</td>
+                <td>{{formation.titre}}</td>
+                <td>{{formation?.formateur.username}}</td>
+                <td>{{formation.description}}</td>
+                <td></td>
+                <td> <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal" (click)="selectFormation(formation)" >Attibuer</button></td>
+
+              </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formation   {{selectedFormation?.titre}} </h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-title" id="exampleModalLabel">Choisir un ou plusierus employees : </h5>
+        <ul class="list-group  my-scrollable-list">
+          <li class="list-group-item" style="padding-left: 38px;" *ngFor="let emp of employes">
+            <input type="checkbox" class="form-check-input me-1"
+                   (change)="onCheckboxChange(emp, $event.target.checked)">
+            {{emp.email}}
+        </li>
+     
+     
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="affecterformation()" [disabled]="selectedEmployeIds.length === 0">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter Formation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Titre</label>
+            <input type="text" class="form-control" id="recipient-name"  (input)="onInputChangetitre($event)">
+          </div>
+          
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Description</label>
+            <textarea class="form-control" id="message-text" (input)="onInputChange($event)"></textarea>
+          </div>
+         
+           
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="selectedCategorie" 
+          name="selectedCategorie"  (ngModelChange)="onCategorieChange()"  style="width: 100%;display: block;">
+            <option [ngValue]="null" > Selectionner un categorie</option>
+            <option *ngFor="let categorie of categories"  [ngValue]="categorie" >{{categorie.nomCat}}</option>
+          </select>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="ajouterformation()" data-dismiss="modal" onclick="location.reload();">Valider</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+              <!--<div class="form-group">-->
+                <!--<label>Password</label>-->
+                <!--<input type="password" class="form-control" name="password" [(ngModel)]="passager.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />-->
+                <!--<div *ngIf="f.submitted && password.invalid" class="invalid-feedback">-->
+                  <!--<div *ngIf="password.errors.required">Password is required</div>-->
+                  <!--<div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="form-group">-->
+                <!--<label>Confirm Password</label>-->
+                <!--<input type="password" class="form-control" name="confirmPassword" [(ngModel)]="passager.confirmedPassword" #confirmedPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmedPassword.invalid }" required />-->
+                <!--<div *ngIf="f.submitted && confirmedPassword.invalid" class="invalid-feedback">-->
+                  <!--<div *ngIf="confirmedPassword.errors.required">Confirm Password is required</div>-->
+                  <!--<div *ngIf="confirmedPassword.errors.mustMatch">Passwords must match</div>-->
+                <!--</div>-->
+              <!--</div>-->
+
+              <!--<div class="modal-footer">-->
+                <!--<div class="form-group">-->
+                  <!--<button  type="submit"  class="btn btn-primary" (click)="addpassager()"   >Ajouter</button>-->
+                  <!--<button class="btn btn-light"  data-dismiss="modal">Annuler</button>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</form>-->
+
+          <!--</div>-->
+
+
+
+
+
+
+
+        <!--</div>-->
+      <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+  <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+<!--</div>-->
+
+<div class=" example-modal " >
+  <div class="modal modal-primary" id="supp">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+
+          <h1 class="modal-title" > voulez-vous supprimer ?? </h1>
+
+        </div>
+        <div class="modal-footer">
+
+
+          <button type="submit"  data-dismiss="modal"  class="btn btn-primary"(click)="removepassager()">Valider</button>
+          <button type="button"  data-dismiss="modal"  class="btn btn-danger"  >Annuler</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div>
+
+
+
+
+<!--div class=" example-modal " >
+  <div class="modal modal-primary" id="ajout">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+
+          <form name="form" (ngSubmit)="f.form.valid && ajout()" #f="ngForm"   [mustMatch]="['password', 'confirmedPassword']" novalidate>
+
+            <div class="form-group">
+              <label >Nom d'utilisateur</label>
+              <input type="text" class="form-control" name="username" [(ngModel)]="conducteur.username" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required />
+              <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+                <div *ngIf="username.errors.required">Nom d'utilisateur Obligatoire</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label >Nom </label>
+              <input type="text" class="form-control" name="firstName" [(ngModel)]="conducteur.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+              <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                <div *ngIf="firstName.errors.required">Nom Obligatoire</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label >Prenom</label>
+              <input type="text" class="form-control" name="lastName" [(ngModel)]="conducteur.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
+              <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                <div *ngIf="lastName.errors.required">Prenom Obligatoire</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" class="form-control" name="email" [(ngModel)]="conducteur.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+              <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                <div *ngIf="email.errors.required">Email Obligatoire</div>
+                <div *ngIf="email.errors.email">address mail invalid</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label> Date de naissance</label>
+              <input type="date" class="form-control"  [(ngModel)]="conducteur.birthdate" name=" birthdate"  #birthdate="ngModel"  [ngClass]="{ 'is-invalid':f. submitted && birthdate.invalid }" required />
+              <div *ngIf="f.submitted && birthdate.invalid" class="invalid-feedback">
+                <div *ngIf="birthdate.errors.required">Date de naissance Obligatoire</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label >genre</label>
+
+                <select  name="genre"  [(ngModel)]="conducteur.genre"    #genre="ngModel" class="form-control" [ngClass]="{ 'is-invalid': f.submitted && genre.invalid }" >
+
+
+                  <option    value="homme" >Homme</option>
+                  <option   [ngClass]="{ 'is-invalid': f.submitted && genre.invalid }"  value="femme">Femme</option>
+                </select>
+                <div *ngIf="f.submitted && genre.invalid" class="invalid-feedback">
+                  <div *ngIf="genre.errors.required">Il faut indiquer votre genre</div>
+                </div>
+
+              </div>
+
+
+
+
+
+
+            <div class="form-group">
+              <label>Telphone</label>
+              <input type="text" class="form-control"  [(ngModel)]="conducteur.tel" name="tel"  #tel="ngModel"  [ngClass]="{ 'is-invalid':f. submitted && tel.invalid }" required />
+              <div *ngIf="f.submitted && tel.invalid" class="invalid-feedback">
+                <div *ngIf="tel.errors.required">Telphone Obligatoire</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Permis</label>
+              <input type="text" class="form-control"  [(ngModel)]="conducteur.permis" name="permis"  #permis="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && permis.invalid }"  required/>
+              <div *ngIf="f.submitted && permis.invalid" class="invalid-feedback">
+                <div *ngIf="permis.errors.required">Permis Obligatoire</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Numero Cart cin</label>
+              <input type="text" class="form-control"  [(ngModel)]="conducteur.cin" name="cin"  #cin="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && cin.invalid }" required/>
+              <div *ngIf="f.submitted && cin.invalid" class="invalid-feedback">
+                <div *ngIf="cin.errors.required"> Numero Cart cin</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Adress</label>
+              <input type="text" class="form-control"  [(ngModel)]="conducteur.adress" name="adress"  #adress="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && adress.invalid }" required/>
+              <div *ngIf="f.submitted && adress.invalid" class="invalid-feedback">
+                <div *ngIf="adress.errors.required">Adress Obligatoire</div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+
+             <label>{{conducteur.photo}} </label>
+
+              <input  id ="file1" type='file' name="file" (change)="recuperFile($event)"  class="form-control" [(ngModel)]="conducteur.photo"  #photo="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && photo.invalid }" required/>
+
+</div>
+
+
+            <div class="form-group">
+              <label>Mot de passe</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="conducteur.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+              <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                <div *ngIf="password.errors.required">Mot de passe Obligatoire</div>
+                <div *ngIf="password.errors.minlength">Mot de passe doit etre plus que  6 characters</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Confirmation Mot de passe </label>
+              <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="conducteur.confirmedPassword" #confirmedPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmedPassword.invalid }" required />
+              <div *ngIf="f.submitted && confirmedPassword.invalid" class="invalid-feedback">
+                <div *ngIf="confirmedPassword.errors.required">Confirmetion Mot de passe Obligatoire</div>
+                <div *ngIf="confirmedPassword.errors.mustMatch">Mot de passes ne sont pas identique</div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="form-group">
+                <button  type="submit"  class="btn btn-primary" (click)="ajout()" data-dismiss="modal"  >AJOUTER</button>
+                <button class="btn btn-light"  data-dismiss="modal" (click)="closemodal()" >Annuler</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>< /.modal-content >
+  </div>< /.modal-dialog >
+</div>< /.modal -->

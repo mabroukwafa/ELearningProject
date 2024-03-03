@@ -1,0 +1,157 @@
+<div class="content-wrapper">
+  <div class="row">
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+
+          <div class="table-responsive">
+
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>
+                titre
+                </th>
+                <th>
+                  Email
+                </th>
+                <th>
+              détaille
+                </th>
+                <th>
+                  Supprimer
+                </th>
+                <th>
+                Etat
+                </th>
+              </tr>
+
+              </thead>
+              <tbody>
+              <tr *ngFor=" let e of listreclamation  ">
+                <td>{{e.titre}}</td>
+                <td>{{e.appUser.email}}</td>
+                <td><i class="fa fa-external-link" style="font-size:36px" data-toggle="modal" data-target="#largeModal" (click)="getonreclamation(e.id)" ></i>
+
+
+                  <!--(click)="recuper(e.id,e.titre,e.sujet,e.reponseRec)"-->
+
+                </td>
+
+
+                <td >
+                  <i class="fa fa-trash" style="font-size:30px;color:red" (click)="deletereclamation(e.id)"></i>
+                </td>
+                <td >
+                  <i class="fa fa-check-square-o" aria-hidden="true" style="font-size:30px;" (click)="reponseenvouyer(e.id)"> </i>
+                </td>
+
+              </tr>
+
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="title" id="largeModalLabel">detail de Reclamation</h4>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+
+
+          <div class="container-fluid">
+
+            <div class="row clearfix">
+              <div class="col-lg-12">
+
+                  <div class="body">
+                    <form [formGroup]="reclamationForm" (ngSubmit)="sendMail()">
+                    <div class="row">
+                      <div class="col-md-12 col-lg-12 col-xl-12">
+                        <h3>{{reclamtion.titre}}</h3>
+                        <div class="form-group form-float">
+                          <input type="text" class="form-control"  placeholder=" To:{{reclamtion.appUser.email}}">
+
+                        </div>
+                        <div class="form-group form-float">
+
+                          <input type="text" placeholder="Enter content"  formControlName="content" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.content.errors }" />
+
+                      </div>
+
+                    </div>
+                  </div>
+                      <button   type="submit"  class="btn btn-primary btn-round waves-effect m-t-20">Envoyer Reponce</button>
+                      <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Annuler</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--<div class=" example-modal " >-->
+  <!--<div class="modal modal-primary" id="detail">-->
+    <!--<div class="modal-dialog">-->
+      <!--<div class="modal-content">-->
+        <!--<div class="modal-header">-->
+          <!--<h3>detail de Reclamation </h3>-->
+          <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+
+
+          <!--<div class="form-group">-->
+            <!--<label ></label>-->
+       <!--<h3>{{reclamtion.titre}}</h3>-->
+            <!--<p>{{reclamtion.sujet}}</p>-->
+
+          <!--</div>-->
+          <!--<form [formGroup]="reclamationForm" (ngSubmit)="sendMail()">-->
+          <!--<div class="row">-->
+            <!--<div class="col-sm-6 form-group">-->
+              <!--<label> contenu de reponce </label>-->
+              <!--<input type="text" placeholder="Enter content"  formControlName="content" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.content.errors }" />-->
+              <!--<div *ngIf="submitted && f.content.errors" class="invalid-feedback">-->
+                <!--<div *ngIf="f.content.errors.required">content is required</div>-->
+
+              <!--</div>-->
+
+
+
+            <!--</div>-->
+
+          <!--</div>-->
+            <!--<button  type="submit"  class="btn btn-primary"  >Repondre</button>-->
+          <!--</form>-->
+
+        <!--</div>-->
+
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
