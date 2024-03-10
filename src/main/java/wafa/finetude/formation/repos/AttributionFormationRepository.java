@@ -3,10 +3,8 @@ package wafa.finetude.formation.repos;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-
 import wafa.finetude.formation.entities.AttributionFormation;
-import wafa.finetude.formation.entities.Question;
+import wafa.finetude.formation.entities.Employe;
 
 /**
  * Interface de Repository pour les attributions de formation.
@@ -24,9 +22,15 @@ import wafa.finetude.formation.entities.Question;
  * de formation via des requêtes HTTP simples.
  */
 
-// @RepositoryRestResource(collectionResourceRel = "attFormation", path = "attFormation")
+// @RepositoryRestResource(collectionResourceRel = "attFormation", path =
+// "attFormation")
 public interface AttributionFormationRepository extends JpaRepository<AttributionFormation, Long> {
 
     List<AttributionFormation> findByEmployeId(Long id);
 
+    List<AttributionFormation> findByApproved(Boolean approved);
+
+    List<AttributionFormation> findByEmploye(Employe employe);
+
+    List<AttributionFormation> findByApprovedAndEmployeId(Boolean approved, Long id);
 }

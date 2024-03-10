@@ -2,7 +2,6 @@ package wafa.finetude.formation.restcontrollers;
 
 import java.util.List;
 
-import org.hibernate.type.descriptor.java.LongJavaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;

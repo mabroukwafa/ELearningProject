@@ -3,6 +3,7 @@ package wafa.finetude.formation.service;
 import java.util.List;
 
 import wafa.finetude.formation.entities.AttributionFormation;
+import wafa.finetude.formation.entities.Employe;
 
 public interface AttributionFormationService {
 
@@ -15,4 +16,8 @@ public interface AttributionFormationService {
     List<AttributionFormation> getAllAttribution();
 
     List<AttributionFormation> findByEmployeId(Long id);
+
+    List<AttributionFormation> findByApproved(Boolean approved);
+
+     List<AttributionFormation> findByApprovedAndEmployeId(Boolean approved, long id);
 }

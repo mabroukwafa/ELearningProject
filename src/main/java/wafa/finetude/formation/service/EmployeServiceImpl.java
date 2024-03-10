@@ -1,6 +1,8 @@
 package wafa.finetude.formation.service;
 
 import java.util.List;
+
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +17,15 @@ public class EmployeServiceImpl implements EmployeService {
 
     @Override
     public Employe saveEmploye(Employe employe) {
+        String hashedPassword = BCrypt.hashpw(employe.getPassword(), BCrypt.gensalt());
+        employe.setPassword(hashedPassword);
         return employeRepository.save(employe);
     }
 
     @Override
     public Employe updateEmploye(Employe employe) {
+        String hashedPassword = BCrypt.hashpw(employe.getPassword(), BCrypt.gensalt());
+        employe.setPassword(hashedPassword);
         return employeRepository.save(employe);
     }
 

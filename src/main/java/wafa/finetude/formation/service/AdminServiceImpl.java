@@ -2,6 +2,7 @@ package wafa.finetude.formation.service;
 
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +17,15 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Admin saveAdmin(Admin admin) {
+        String hashedPassword = BCrypt.hashpw(admin.getPassword(), BCrypt.gensalt());
+        admin.setPassword(hashedPassword);
         return adminRepository.save(admin);
     }
 
     @Override
     public Admin updateAdmin(Admin admin) {
+        String hashedPassword = BCrypt.hashpw(admin.getPassword(), BCrypt.gensalt());
+        admin.setPassword(hashedPassword);
         return adminRepository.save(admin);
 
     }

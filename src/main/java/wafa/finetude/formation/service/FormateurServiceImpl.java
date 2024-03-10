@@ -2,6 +2,7 @@ package wafa.finetude.formation.service;
 
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +17,15 @@ public class FormateurServiceImpl implements FormateurService {
 
     @Override
     public Formateur saveFormateur(Formateur formateur) {
+        String hashedPassword = BCrypt.hashpw(formateur.getPassword(), BCrypt.gensalt());
+        formateur.setPassword(hashedPassword);
         return formateurRepository.save(formateur);
     }
 
     @Override
     public Formateur updateFormateur(Formateur formateur) {
+        String hashedPassword = BCrypt.hashpw(formateur.getPassword(), BCrypt.gensalt());
+        formateur.setPassword(hashedPassword);
         return formateurRepository.save(formateur);
     }
 

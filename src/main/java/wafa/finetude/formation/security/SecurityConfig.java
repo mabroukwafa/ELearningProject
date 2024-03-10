@@ -1,5 +1,6 @@
-/*
- * import org.springframework.context.annotation.Bean;
+package wafa.finetude.formation.security;
+
+/*  import org.springframework.context.annotation.Bean;
  * import
  * org.springframework.security.config.annotation.web.builders.HttpSecurity;
  * import org.springframework.security.config.annotation.web.configuration.
@@ -25,8 +26,7 @@
  * return http.build();
  * }
  * }
- */
-/*
+ 
  * package wafa.finetude.formation.security;
  * 
  * import org.springframework.beans.factory.annotation.Autowired;
@@ -92,3 +92,30 @@
  * }
  * }
  */
+/* 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Configuration
+public class SecurityConfig {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable() // Désactiver CSRF pour le test
+                .authorizeRequests()
+                .antMatchers("/**").permitAll() // Permettre l'accès à tous les endpoints
+                .anyRequest().authenticated()
+                .and()
+                .httpBasic();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
+*/

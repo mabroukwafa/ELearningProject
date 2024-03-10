@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import wafa.finetude.formation.entities.AttributionFormation;
+import wafa.finetude.formation.entities.Employe;
 import wafa.finetude.formation.repos.AttributionFormationRepository;
 
 @Service
@@ -38,4 +39,15 @@ public class AttributionFormationServiceImpl implements AttributionFormationServ
     public List<AttributionFormation> findByEmployeId(Long id) {
         return attributionFormationRepository.findByEmployeId(id);
     }
+
+    @Override
+    public List<AttributionFormation> findByApproved(Boolean approved) {
+        return attributionFormationRepository.findByApproved(approved);
+    }
+
+    @Override
+    public List<AttributionFormation> findByApprovedAndEmployeId(Boolean approved, long id) {
+        return attributionFormationRepository.findByApprovedAndEmployeId(approved, id);
+    }
+
 }

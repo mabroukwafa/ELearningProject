@@ -11,7 +11,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
@@ -43,9 +42,10 @@ public class AttributionFormation {
     @ManyToOne
     @JoinColumn(name = "admin_id")
     @JsonIgnoreProperties("attributionsEffectuees")
-    private Admin admin;
+    Admin admin;
+    Boolean approved = true;
 
-    private LocalDate dateAttribution;
+    LocalDate dateAttribution;
 
     public AttributionFormation() {
     }
@@ -88,6 +88,14 @@ public class AttributionFormation {
 
     public void setDateAttribution(LocalDate dateAttribution) {
         this.dateAttribution = dateAttribution;
+    }
+
+    public void setEmploye(List<Employe> employe) {
+        this.employe = employe;
+    }
+
+    public void setApproved(Boolean approved) {
+        this.approved = approved;
     }
 
 }
