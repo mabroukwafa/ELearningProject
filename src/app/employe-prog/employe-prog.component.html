@@ -24,7 +24,7 @@
     content: '';
     position: absolute;
     top: 50%;
-    right: -25px; /* ajuster si nécessaire */
+    right: -25px; 
     width: 0;
     height: 0;
     border-top: 15px solid transparent;
@@ -48,28 +48,28 @@
   /* Définition de l'image de fond pour chaque étape */
   .step:nth-child(1) .step-icon {
     background-color: #3498db;
-    background-image: url('../../../assets/images/demande.jpg'); /* Remplacez avec le chemin de votre image */
+    background-image: url('../../../assets/images/demande.jpg'); 
   }
   .step:nth-child(1):after {
     border-left: 20px solid #3498db;
   }
   .step:nth-child(2) .step-icon {
     background-color: #3498db;
-    background-image: url('../../../assets/images/upcoming.jpg'); /* Remplacez avec le chemin de votre image */
+    background-image: url('../../../assets/images/upcoming.jpg');
   }
   .step:nth-child(2):after {
     border-left: 20px solid #3498db;
   }
   .step:nth-child(3) .step-icon {
     background-color: #3498db;
-    background-image: url('../../../assets/images/encour.png'); /* Remplacez avec le chemin de votre image */
+    background-image: url('../../../assets/images/encour.png'); 
   }
   .step:nth-child(3):after {
     border-left: 20px solid #3498db;
   }
   .step:nth-child(4) .step-icon {
     background-color: #3498db;
-    background-image: url('../../../assets/images/done.jpg'); /* Remplacez avec le chemin de votre image */
+    background-image: url('../../../assets/images/done.jpg'); 
   }
   
 
@@ -88,21 +88,32 @@
 <div class="diagram-container">
   <div class="step">
     <div class="step-icon" ></div> 
-    <div class="step-title">Mes demandes </div>
+    <a class="nav-link" data-toggle="collapse"  aria-expanded="false"   href="#ui-basic">
+    <div routerLink="/home/employeProg/mesdemandes"   >Mes demandes </div>
+  </a>
   </div>
   <div class="step">
     <div class="step-icon"></div>
-    <div class="step-title">A venir</div>
+    <a class="nav-link" data-toggle="collapse"  aria-expanded="false"   href="#ui-basic">
+
+    <div class="step-title" routerLink="/home/employeProg/mesformations" >A venir</div>
+    </a>
   </div>
   <div class="step">
     <div class="step-icon"></div> 
+    <a class="nav-link" data-toggle="collapse"  aria-expanded="false"   href="#ui-basic">
+
     <div class="step-title">En cours</div>
+    </a>
   </div>
   <div class="step">
     <div class="step-icon"></div> 
+    <a class="nav-link" data-toggle="collapse"  aria-expanded="false"   href="#ui-basic">
+
     <div class="step-title">Done</div>
+    </a>
   </div>
 </div>
-
+<router-outlet></router-outlet>
 </body>
 </html>

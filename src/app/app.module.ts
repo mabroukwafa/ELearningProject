@@ -39,6 +39,8 @@ import { ValidationDemandeComponent } from './validation-demande/validation-dema
 import { DevFormationComponent } from './dev-formation/dev-formation.component';
 import { EmployeProgComponent } from './employe-prog/employe-prog.component';
 import { AuthGuard } from './auth.guard';
+import { EmployeDemandesComponent } from './employe-prog/employe-demandes/employe-demandes.component';
+import { EmployeAttributesComponent } from './employe-prog/employe-attributes/employe-attributes.component';
 
 
 
@@ -67,7 +69,11 @@ import { AuthGuard } from './auth.guard';
 
     DevFormationComponent,
 
-    EmployeProgComponent
+    EmployeProgComponent,
+
+    EmployeDemandesComponent,
+
+    EmployeAttributesComponent
 
 
 

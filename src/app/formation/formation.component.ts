@@ -5,7 +5,6 @@ import { FormationService } from './../service/formation.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {Passager} from '../model/passager';
 import Swal from "sweetalert2";
 import { Formation } from '../model/formation';
 import { Employe } from '../model/employe';
@@ -47,9 +46,6 @@ export class FormationComponent implements OnInit {
     this.chargerServices();
     this.chargerEmployes();
     this.chargerCategories();
-
-
-
   }
 
   chargerServices(){
@@ -67,7 +63,7 @@ export class FormationComponent implements OnInit {
 
   }
 
-  selectFormation(formation: Formation) { // Remplacez 'any' par votre type de formation
+  selectFormation(formation: Formation) { 
     this.selectedFormation = formation;
 }
 closeModal() {
@@ -89,9 +85,9 @@ onCheckboxChange(emp: Employe, isChecked: boolean) {
 
 affecterformation(){
       
-  this.admin.id =6; 
-  this.admin.username ="admin2024";
-  this.admin.email ="admin2024@gmail.com";
+  this.admin.id =11; 
+  this.admin.username ="admin";
+  this.admin.email ="admin@gmail.com";
   this.attribute.admin  = this.admin;
    this.attribute.formation = this.selectedFormation;
    this.attribute.employes = this.selectedEmployeIds;

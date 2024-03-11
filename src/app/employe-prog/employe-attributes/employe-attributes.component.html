@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cours en ligne</title>
+<style>
+  .course-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  .course-card {
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .course-card img {
+    width: 100%;
+    height: auto;
+  }
+  .course-info {
+    padding: 15px;
+    text-align: center;
+  }
+  .course-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  .course-price {
+    font-size: 16px;
+    color: #E95546;
+    margin-bottom: 10px;
+  }
+  .course-rating {
+    margin-bottom: 10px;
+  }
+  .course-rating span {
+    color: #FFD700; /* Gold color for stars */
+  }
+</style>
+</head>
+<body>
+<div *ngFor=" let attribute of attributes">  
+<div class="course-container" >
+  <div class="course-card">
+    <img src="../../../assets/images/PhP-MySQL-2.png" alt="Créer un site Web dynamique avec PHP et MySQL">
+    <div class="course-info">
+      <div class="course-title">{{attribute.formation.titre}}</div>
+      <div class="course-rating"><span>★★★★★</span> (50)</div>
+    </div>
+  </div>
+  
+  
+
+ 
+</div>
+
+
+
+
+
+
+</div>
+</body>
+</html>

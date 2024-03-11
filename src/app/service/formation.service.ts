@@ -36,7 +36,7 @@ export class FormationService {
     return this.http.delete(url, httpOptions);
   }
 
-  updateProduit(formation :Formation) : Observable<Formation>
+  updateFormation(formation :Formation) : Observable<Formation>
   {
       return this.http.put<Formation>(this.apiURL+"update", formation, httpOptions);
   }

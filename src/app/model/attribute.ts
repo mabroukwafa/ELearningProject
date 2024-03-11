@@ -8,5 +8,6 @@ export class Attribute {
      formation:Formation ;
      admin:Admin ;
      dateAttribution:Date ;
+     approved:Boolean;
 
 }

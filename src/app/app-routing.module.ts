@@ -18,6 +18,8 @@ import { ValidationDemandeComponent } from './validation-demande/validation-dema
 import { DevFormationComponent } from './dev-formation/dev-formation.component';
 import { EmployeProgComponent } from './employe-prog/employe-prog.component';
 import { AuthGuard } from './auth.guard';
+import { EmployeDemandesComponent } from './employe-prog/employe-demandes/employe-demandes.component';
+import { EmployeAttributesComponent } from './employe-prog/employe-attributes/employe-attributes.component';
 
 
 
@@ -28,13 +30,18 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent,children:[
     {path:'',component:ContainerComponent},
       {path:'question',component: QuestionComponent},
-      {path:'employeProg',component: EmployeProgComponent},
+      {path:'employeProg',component: EmployeProgComponent,children:[
+        {path:'mesdemandes',component: EmployeDemandesComponent},
+        {path:'mesformations',component: EmployeAttributesComponent},
+
+        
+      ]},
+      
       {path:'formation',component:FormationComponent },
       {path:'devFormations',component:DevFormationComponent },
       {path:'profileadmin',component:ProfileadminComponent},
       {path:'profiluser/:id',component:ProfilUserComponent},
-      
-      {path:'demandes',component:ValidationDemandeComponent},
+      {path:'demandes',component:ValidationDemandeComponent },
 
       ]
     ,canActivate:[AuthGuard] 

@@ -1,7 +1,7 @@
+import { User } from './../model/user';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {User} from '../model/user';
 import {Observable} from 'rxjs';
 import {Admin} from '../model/admin';
 
@@ -13,7 +13,8 @@ export class AuthentificationService {
 
    isAuthenticated: boolean = false;
    role:any;
-
+   user : User ;
+   public id:any;
   constructor(private http : HttpClient){}
 
  login(user:User ): Observable<any>{
@@ -32,8 +33,11 @@ export class AuthentificationService {
   if (this.isObjectInLocalStorage("user")) {
     console.log('L\'objet existe dans le localStorage.');
     let userObj = JSON.parse(localStorage.getItem("user"));
+    this.id = userObj.user.id;
     this.role = userObj.role;
     console.log( this.role ); 
+    console.log( this.id ); 
+
 
 
     this.isAuthenticated=true;

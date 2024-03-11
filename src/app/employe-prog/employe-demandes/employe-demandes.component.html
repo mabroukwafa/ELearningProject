@@ -1,0 +1,70 @@
+<div class="content-wrapper">
+  <div class="row">
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-description">
+            List des Demandes
+          </p>
+       
+          <div class="table-responsive">
+
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>
+                  Titre Formation
+                 </th>
+                <th>
+                  Details
+                </th>
+                <th>
+                  Date
+                </th>
+                <th>
+                  Status
+                </th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor=" let demande of demandes">
+                <td >{{demande.formation.titre}}</td>
+                <td>{{demande.formation.description}}</td>
+                <td>{{demande.date}}</td>
+                <td> 
+                 En attente
+                </td>
+              
+              
+
+              </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+         
+
+
+
+ 
